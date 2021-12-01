@@ -10,7 +10,13 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 firebase.initializeApp({
-  // your config
+  apiKey: "AIzaSyCffZbbVsO2KHsfZ2hjBLiPbL9P8VZoD6s",
+  authDomain: "chat-app-40d69.firebaseapp.com",
+  projectId: "chat-app-40d69",
+  storageBucket: "chat-app-40d69.appspot.com",
+  messagingSenderId: "395381807457",
+  appId: "1:395381807457:web:08679ac9eb1af3370acd20",
+  measurementId: "G-K1L8NNHC56"
 })
 
 const auth = firebase.auth();
@@ -25,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>⚛️🔥💬</h1>
+        <h1>Chatter</h1>
         <SignOut />
       </header>
 
@@ -46,8 +52,8 @@ function SignIn() {
 
   return (
     <>
-      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-      <p>Do not violate the community guidelines or you will be banned for life!</p>
+      <button className="sign-in" onClick={signInWithGoogle}>Ingresar con cuenta Google</button>
+      <p></p>
     </>
   )
 
@@ -55,7 +61,7 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+    <button className="sign-out" onClick={() => auth.signOut()}>Salir</button>
   )
 }
 
@@ -97,9 +103,9 @@ function ChatRoom() {
 
     <form onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Escribe un mensaje aquí" />
 
-      <button type="submit" disabled={!formValue}>🕊️</button>
+      <button type="submit" disabled={!formValue}>⤴</button>
 
     </form>
   </>)
@@ -113,7 +119,7 @@ function ChatMessage(props) {
 
   return (<>
     <div className={`message ${messageClass}`}>
-      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="Imagen del usuario"/>
       <p>{text}</p>
     </div>
   </>)
